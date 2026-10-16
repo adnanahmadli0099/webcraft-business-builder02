@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function() {
+        function isExtensionError(err) {
+          if (!err) return false;
+          var str = String(err.message || err.reason || err.stack || err || '');
+          return (
+            str.indexOf('MetaMask') !== -1 ||
+            str.indexOf('nkbihfbeogaeaoehlefnkodbefgpgknn') !== -1 ||
+            str.indexOf('chrome-extension://') !== -1 ||
+            str.indexOf('inpage.js') !== -1 ||
+            str.indexOf('Failed to connect to MetaMask') !== -1 ||
+            str.indexOf('ethereum') !== -1
+          );
+        }
+        window.addEventListener('error', function(e) {
+          if (
+            isExtensionError(e.error) ||
+            isExtensionError(e.message) ||
+            (e.filename && e.filename.indexOf('chrome-extension://') !== -1)
+          ) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+            return true;
+          }
+        }, true);
+        window.addEventListener('unhandledrejection', function(e) {
+          if (isExtensionError(e.reason)) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+            return true;
+          }
+        }, true);
+      })();
+    </script>
+    <title>HouseCalls Home Care | NY Licensed In-Home Health Agency</title>
+    <meta name="description" content="NYS-licensed home care agency in Brooklyn, NY providing compassionate personal care, CDPAP, skilled nursing, and NHTD waiver services across New York." />
+    <link rel="icon" type="image/png" href="/assets/cropped-favi-192x192.png" />
+    <link rel="apple-touch-icon" href="/assets/cropped-favi-192x192.png" />
+    
+    <!-- OpenGraph Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="HouseCalls Home Care | NY Licensed In-Home Health Agency" />
+    <meta property="og:description" content="NYS-licensed home care agency in Brooklyn, NY providing compassionate personal care, CDPAP, skilled nursing, and NHTD waiver services across New York." />
+    <meta property="og:site_name" content="HouseCalls Home Care" />
+    <meta property="og:image" content="/assets/20762.jpg" />
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="HouseCalls Home Care | NY Licensed In-Home Health Agency" />
+    <meta name="twitter:description" content="NYS-licensed home care agency in Brooklyn, NY providing compassionate personal care, CDPAP, skilled nursing, and NHTD waiver services across New York." />
+    <meta name="twitter:image" content="/assets/20762.jpg" />
+
+    <!-- Google Fonts for typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Schema.org JSON-LD Structured Data for LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HomeHealthCareService",
+      "name": "HouseCalls Home Care",
+      "image": "https://housecallshc.org/wp-content/uploads/2022/11/logo-housecalls.svg",
+      "url": "https://housecallshc.org",
+      "telephone": "+1-718-922-9200",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "4920 Church Ave",
+        "addressLocality": "Brooklyn",
+        "addressRegion": "NY",
+        "postalCode": "11203",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 40.6515479,
+        "longitude": -73.9306913
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "17:00"
+        }
+      ],
+      "department": [
+        {
+          "@type": "HomeHealthCareService",
+          "name": "HouseCalls Home Care - East New York",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1950 Fulton St",
+            "addressLocality": "Brooklyn",
+            "addressRegion": "NY",
+            "postalCode": "11233",
+            "addressCountry": "US"
+          },
+          "telephone": "+1-718-922-9200"
+        },
+        {
+          "@type": "HomeHealthCareService",
+          "name": "HouseCalls Home Care - Sunset Park",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "5803 8th Ave",
+            "addressLocality": "Brooklyn",
+            "addressRegion": "NY",
+            "postalCode": "11220",
+            "addressCountry": "US"
+          },
+          "telephone": "+1-718-922-9200"
+        }
+      ],
+      "sameAs": [
+        "https://maps.app.goo.gl/wEx8WPajNkzemzDg8",
+        "https://housecallshc.org"
+      ]
+    }
+    </script>
+  </head>
+  <body class="bg-[#F8FAFC] text-slate-800 antialiased selection:bg-[#00A3C4] selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

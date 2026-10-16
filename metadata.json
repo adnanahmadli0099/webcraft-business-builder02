@@ -1,0 +1,6 @@
+{
+  "name": "HouseCalls Home Care | NY Licensed In-Home Health Agency",
+  "description": "NYS-licensed home care agency in Brooklyn, NY providing compassionate personal care, CDPAP, skilled nursing, and NHTD waiver services across New York.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
